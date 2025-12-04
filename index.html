@@ -1,59 +1,163 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人介绍</title>
-    <!-- 引入图标库（用于联系栏图标） -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>刘霖 - 个人简历</title>
+    <!-- 图标库（用于导航和交互） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <!-- 引入样式文件 -->
-    <link rel="stylesheet" href="/llin/style.css">
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <!-- 容器：所有内容居中 -->
-    <div class="container">
-        <!-- 1. 头部：头像+名字+标语 -->
-        <section class="hero">
-            <img src="images/avatar.jpg" alt="我的头像" class="avatar">
-            <h1>liulin</h1>
-            <p class="tagline">学生</p>
-        </section>
-
-        <!-- 2. 关于我：简介+技能 -->
-        <section class="about">
-            <h2>大家好！我是liulin，目前就读于福建省厦门市华侨大学智能制造工程专业，
-                喜欢游戏、音乐、美食，擅长运动，希望通过这个网站和大家交流～</h2>
-            <p class="intro">
-                这里写你的简短简介（比如：大家好！我是XXX，目前在XX城市/XX学校/XX公司，
-                喜欢XX（编程/设计/摄影），擅长XX，希望通过这个网站和大家交流～
-            </p>
-            <h3>我的技能</h3>
-            <ul class="skills">
-                <li>HTML/CSS</li>
-                <li>JavaScript</li>
-                <li>你的技能1</li>
-                <li>你的技能2</li>
+    <!-- 固定导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">刘霖</a>
+            <ul class="nav-links">
+                <li><a href="#education">教育背景</a></li>
+                <li><a href="#experience">经历</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#self-eval">自我评价</a></li>
             </ul>
-        </section>
+        </div>
+    </nav>
 
-        <!-- 3. 联系我：社交链接 -->
-        <section class="contact">
-            <h2>联系我</h2>
-            <div class="contact-links">
-                <a href="https://github.com/你的GitHub用户名" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="mailto:你的邮箱@xxx.com">
-                    <i class="fas fa-envelope"></i> 邮箱
-                </a>
-                <a href="你的其他社交链接（比如微博/知乎）" target="_blank">
-                    <i class="fab fa-weibo"></i> 微博
-                </a>
+    <!-- 头部：头像+基本信息 -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <!-- 替换为你的头像（放在images文件夹） -->
+            <img src="images/avatar.jpg" alt="头像" class="hero-avatar"/>
+            <div class="hero-info">
+                <h1>刘霖</h1>
+                <p class="hero-tagline">22岁 · 智能制造工程本科 · 求职管培生/培训生</p>
+                <div class="contact-grid">
+                    <div><i class="fas fa-phone"></i> 19870649928</div>
+                    <div><i class="fas fa-envelope"></i> 2139830072@qq.com</div>
+                    <div><i class="fas fa-map-marker-alt"></i> 江西吉安</div>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- 保留简单的交互（点击任意位置弹窗，可选） -->
+    <!-- 求职意向 -->
+    <section class="section" id="objective">
+        <div class="container">
+            <h2 class="section-title">求职意向</h2>
+            <div class="card">
+                <p><strong>职位：</strong>管培生/培训生</p>
+                <p><strong>城市：</strong>厦门、福州</p>
+                <p><strong>期望薪资：</strong>7000元/月</p>
+                <p><strong>到岗时间：</strong>随时到岗</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育背景（折叠面板） -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="collapse-header" data-target="edu-content">
+                <h2 class="section-title">教育背景</h2>
+                <i class="fas fa-chevron-down arrow"></i>
+            </div>
+            <div class="collapse" id="edu-content">
+                <div class="card">
+                    <p><strong>2022.09 - 2026.06</strong> 华侨大学 · 智能制造工程（本科）</p>
+                    <p><strong>GPA：</strong>3.49/5（专业前60%）</p>
+                    <p><strong>主修课程：</strong>智能制造技术基础、制造系统建模与仿真、智能传感与检测技术、智能生产系统运作管理、工业物联网与大数据技术、高等数学、大学物理、电工电子学等。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经历（工作+校园，折叠面板） -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="collapse-header" data-target="exp-content">
+                <h2 class="section-title">经历</h2>
+                <i class="fas fa-chevron-down arrow"></i>
+            </div>
+            <div class="collapse" id="exp-content">
+                <!-- 工作经历 -->
+                <div class="card">
+                    <h3>工作经历</h3>
+                    <p><strong>2023.03 - 2023.06</strong> 金工实习 · 实习生</p>
+                    <p>系统学习了机械制造的基本工艺方法和技术，涵盖车削、铣削、钳工、焊接等多个工种...（省略部分内容，替换为简历原文）</p>
+                    <p><strong>2024.07 - 2024.08</strong> 电子实训 · 实习生</p>
+                    <p>围绕电子电路展开，依次完成原理图与PCB版图设计、元器件识别采购...（替换为简历原文）</p>
+                    <p><strong>2025.08 - 2025.09</strong> 洛阳一拖 · 实习生</p>
+                    <p>深入参与了解了包括洛阳一拖在内的多家洛阳机械制造相关企业...（替换为简历原文）</p>
+                </div>
+                <!-- 校园经历 -->
+                <div class="card">
+                    <h3>校园经历</h3>
+                    <p><strong>2024.09 - 2024.12</strong> 暑期社会实践 · 志愿者</p>
+                    <p>华侨大学暑期社会实践(厦门翔安青文化实践团) 非遗香文化实践项目干部成员...（替换为简历原文）</p>
+                    <p><strong>2022.11 - 2025.06</strong> 华侨大学学生活动中心 · 负责人</p>
+                    <p>勤工助学岗位(任职三年) 团员管理与服务优化...（替换为简历原文）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能（进度条可视化） -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">技能</h2>
+            <div class="card">
+                <!-- 语言能力 -->
+                <div class="skill-item">
+                    <span>英语（大学四级）</span>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <!-- 计算机技能 -->
+                <div class="skill-item">
+                    <span>Office（Word/Excel/PPT）</span>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>CAD/Creo</span>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Python/C++</span>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 60%"></div>
+                    </div>
+                </div>
+                <!-- 团队能力 -->
+                <div class="skill-item">
+                    <span>团队协作</span>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自我评价 -->
+    <section class="section" id="self-eval">
+        <div class="container">
+            <h2 class="section-title">自我评价</h2>
+            <div class="card">
+                <p>工作严谨高效，善于结合数据分析与办公软件推进项目执行，从活动统筹到文化实践中精准识别需求、优化流程；适应力强，能快速融入团队协作并运用工具来提升效率，始终以务实态度应对挑战；为人随和，热爱运动，可以很好的处理人际关系，有团队合作精神，容易接受新鲜事物，有较强的学习能力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 交互脚本 -->
     <script src="script.js"></script>
 </body>
 </html>
