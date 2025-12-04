@@ -1,126 +1,107 @@
-/* 全局样式重置 */
+/* 全局样式重置 + 渐变背景 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Microsoft YaHei", sans-serif;
 }
-
-/* 滚动平滑 */
-html {
-    scroll-behavior: smooth;
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* 渐变背景 */
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex; /* 配合侧边栏布局 */
 }
 
-/* 导航栏（固定顶部） */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+/* 侧边导航（固定+卡片化） */
+.sidebar {
+    width: 280px;
     background: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 999;
-}
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 30px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    position: fixed; /* 固定侧边栏 */
 }
-.nav-logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #42b983;
-    text-decoration: none;
-}
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
-}
-.nav-links a:hover {
-    color: #42b983;
-}
-
-/* 头部区域（适配导航栏高度） */
-.hero {
-    padding-top: 80px; /* 避免被导航栏遮挡 */
-    background: #f9fafc;
-}
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: 220px 1fr; /* 头像+信息布局 */
-    align-items: center;
-    gap: 40px;
-}
-.hero-avatar {
-    width: 100%;
+.avatar {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: 5px solid #42b983;
-}
-.hero-info h1 {
-    font-size: 36px;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-.hero-tagline {
-    font-size: 18px;
-    color: #6c757d;
     margin-bottom: 20px;
 }
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+.name {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+.subtitle {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+.nav-menu ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+.nav-link {
+    display: block;
+    padding: 12px 0;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s;
+    text-align: center;
+}
+.nav-link.active, .nav-link:hover {
+    color: #42b983;
+    font-weight: bold;
+}
+.contact-info {
+    text-align: center;
     color: #555;
 }
-.contact-grid i {
+.contact-info i {
     color: #42b983;
     margin-right: 5px;
 }
 
+/* 主内容区（适配侧边栏宽度） */
+.main-content {
+    margin-left: 320px; /* 留出侧边栏空间 */
+    padding: 40px;
+}
+
 /* 通用模块样式 */
 .section {
-    padding: 60px 0;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-bottom: 40px;
 }
 .section-title {
-    font-size: 28px;
+    font-size: 24px;
     color: #42b983;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 .section-title::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
+    width: 50px;
     height: 3px;
     background: #42b983;
 }
 .card {
     background: white;
     padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-top: 15px;
-    line-height: 1.8;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px); /* 悬停上浮动画 */
 }
 
 /* 折叠面板 */
@@ -129,6 +110,7 @@ html {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 .arrow {
     transition: transform 0.3s;
@@ -139,7 +121,7 @@ html {
     transition: max-height 0.5s ease-out;
 }
 .collapse.active {
-    max-height: 1000px; /* 足够大的数值容纳内容 */
+    max-height: 1000px;
     transition: max-height 0.5s ease-in;
 }
 .collapse-header.active .arrow {
@@ -165,7 +147,7 @@ html {
 .skill-fill {
     height: 12px;
     background: #42b983;
-    transition: width 1s ease; /* 加载动画 */
+    transition: width 1s ease;
 }
 
 /* 回到顶部按钮 */
@@ -191,20 +173,48 @@ html {
     visibility: visible;
 }
 
-/* 响应式适配（手机端） */
+/* 响应式适配（手机端隐藏侧边栏，改用顶部导航） */
 @media (max-width: 768px) {
-    .hero-container {
-        grid-template-columns: 1fr; /* 头像和信息垂直排列 */
-        text-align: center;
+    body {
+        flex-direction: column;
     }
-    .nav-links {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    .sidebar-header {
+        display: flex;
+        align-items: center;
         gap: 15px;
-        font-size: 14px;
     }
-    .section-title {
-        font-size: 24px;
+    .avatar {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
     }
-    .card {
-        padding: 15px;
+    .name {
+        font-size: 20px;
+    }
+    .subtitle {
+        display: none; /* 手机端隐藏subtitle */
+    }
+    .nav-menu ul {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 0;
+    }
+    .contact-info {
+        display: none; /* 手机端隐藏底部联系信息，可放到主内容区 */
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
     }
 }
