@@ -1,4 +1,4 @@
-// 给按钮添加点击弹窗功能
-document.getElementById("btn").addEventListener("click", function() {
-    alert("🎉 你好！这是JS实现的交互效果~");
+// 点击页面任意位置弹出问候语
+document.addEventListener('click', function() {
+    alert("感谢访问我的个人网站 😊");
 });
