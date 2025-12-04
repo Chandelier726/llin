@@ -9,8 +9,35 @@ collapseHeaders.forEach(header => {
     });
 });
 
-// 2. 导航平滑滚动（自动匹配链接与section的id）
-const navLinks = document.querySelectorAll('.nav-links a');
+// 2. 导航激活态（滚动时自动高亮）
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function setActiveNav() {
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top <= window.innerHeight / 1.5) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[index].classList.add('active');
+        }
+    });
+}
+window.addEventListener('scroll', setActiveNav);
+
+// 3. 回到顶部按钮
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backTop.classList.add('show');
+    } else {
+        backTop.classList.remove('show');
+    }
+});
+backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// 4. 平滑滚动（适配侧边栏链接）
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -18,21 +45,5 @@ navLinks.forEach(link => {
         document.querySelector(targetId).scrollIntoView({
             behavior: 'smooth'
         });
-    });
-});
-
-// 3. 回到顶部按钮
-const backTop = document.getElementById('backTop');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) { // 滚动超过500px时显示
-        backTop.classList.add('show');
-    } else {
-        backTop.classList.remove('show');
-    }
-});
-backTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
     });
 });
