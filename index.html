@@ -3,17 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
-    <!-- 引入CSS样式文件 -->
+    <title>我的个人介绍</title>
+    <!-- 引入图标库（用于联系栏图标） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入样式文件 -->
     <link rel="stylesheet" href="/llin/style.css">
 </head>
 <body>
+    <!-- 容器：所有内容居中 -->
     <div class="container">
-        <h1>👋 欢迎来到我的个人网站</h1>
-        <p>这是用 HTML/CSS/JS 搭建的简单页面</p>
-        <button id="btn">点击我试试</button>
+        <!-- 1. 头部：头像+名字+标语 -->
+        <section class="hero">
+            <img src="images/avatar.jpg" alt="我的头像" class="avatar">
+            <h1>liulin</h1>
+            <p class="tagline">学生</p>
+        </section>
+
+        <!-- 2. 关于我：简介+技能 -->
+        <section class="about">
+            <h2>大家好！我是liulin，目前就读于福建省厦门市华侨大学智能制造工程专业，
+                喜欢游戏、音乐、美食，擅长运动，希望通过这个网站和大家交流～</h2>
+            <p class="intro">
+                这里写你的简短简介（比如：大家好！我是XXX，目前在XX城市/XX学校/XX公司，
+                喜欢XX（编程/设计/摄影），擅长XX，希望通过这个网站和大家交流～
+            </p>
+            <h3>我的技能</h3>
+            <ul class="skills">
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>你的技能1</li>
+                <li>你的技能2</li>
+            </ul>
+        </section>
+
+        <!-- 3. 联系我：社交链接 -->
+        <section class="contact">
+            <h2>联系我</h2>
+            <div class="contact-links">
+                <a href="https://github.com/你的GitHub用户名" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:你的邮箱@xxx.com">
+                    <i class="fas fa-envelope"></i> 邮箱
+                </a>
+                <a href="你的其他社交链接（比如微博/知乎）" target="_blank">
+                    <i class="fab fa-weibo"></i> 微博
+                </a>
+            </div>
+        </section>
     </div>
-    <!-- 引入JS交互文件 -->
+
+    <!-- 保留简单的交互（点击任意位置弹窗，可选） -->
     <script src="script.js"></script>
 </body>
 </html>
